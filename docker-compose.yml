@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: smartbin_ai
+      POSTGRES_USER: smartbin
+      POSTGRES_PASSWORD: smartbin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://smartbin:smartbin123@postgres:5432/smartbin_ai
+      SECRET_KEY: your-secret-key-here
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      # inside docker network use service name `backend`
+      VITE_API_URL: http://backend:8000/api
+
+volumes:
+  postgres_data:

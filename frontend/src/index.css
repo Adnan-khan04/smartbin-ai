@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Green theme variables */
+  --green-50: #ecfdf5;
+  --green-100: #d1fae5;
+  --green-200: #bbf7d0;
+  --green-500: #10b981;
+  --green-600: #059669;
+  --green-700: #047857;
+  --bg: #f0fff4; /* page background */
+  --text: #064e3b; /* main text */
+  --muted: rgba(6,78,59,0.6);
+  --card-bg: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 100%);
+  --on-primary: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+html, body, #root {
+  height: 100%;
+}

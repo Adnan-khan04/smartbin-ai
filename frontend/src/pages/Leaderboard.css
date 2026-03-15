@@ -1,0 +1,224 @@
+.leaderboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard h1 {
+  text-align: center;
+  background: linear-gradient(135deg, #047857 0%, #059669 50%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.leaderboard-table {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(4, 120, 87, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: linear-gradient(135deg, #047857 0%, #059669 50%, #10B981 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+th {
+  padding: 1.5rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+}
+
+td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(4, 120, 87, 0.08);
+}
+
+tbody tr {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideInRow 0.5s ease-out backwards;
+}
+
+@keyframes slideInRow {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+tbody tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+tbody tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+tbody tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+tbody tr:nth-child(n + 4) {
+  animation-delay: 0.4s;
+}
+
+tbody tr:hover {
+  background-color: rgba(16, 185, 129, 0.08);
+  transform: scale(1.01);
+  box-shadow: 0 4px 16px rgba(4, 120, 87, 0.1);
+}
+
+tbody tr.top-1 {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 146, 60, 0.08) 100%);
+  border-left: 4px solid #FBBF24;
+}
+
+tbody tr.top-1:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 146, 60, 0.15) 100%);
+}
+
+tbody tr.top-2 {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.15) 0%, rgba(156, 163, 175, 0.08) 100%);
+  border-left: 4px solid #C0C0C0;
+}
+
+tbody tr.top-2:hover {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.25) 0%, rgba(156, 163, 175, 0.15) 100%);
+}
+
+tbody tr.top-3 {
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.15) 0%, rgba(210, 105, 30, 0.08) 100%);
+  border-left: 4px solid #DAA520;
+}
+
+tbody tr.top-3:hover {
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.25) 0%, rgba(210, 105, 30, 0.15) 100%);
+}
+
+.rank {
+  font-weight: 700;
+  background: linear-gradient(135deg, #047857 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rank::before {
+  content: '🏆';
+  -webkit-text-fill-color: initial;
+  font-size: 1.2rem;
+}
+
+.user {
+  color: #047857;
+  font-weight: 600;
+  font-size: 1.05rem;
+  animation: nameGlow 2s ease-in-out infinite;
+}
+
+@keyframes nameGlow {
+  0%, 100% {
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(4, 120, 87, 0.2);
+  }
+}
+
+.points {
+  background: linear-gradient(135deg, #047857 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.empty-message {
+  text-align: center;
+  color: rgba(4, 120, 87, 0.5);
+  padding: 3rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .leaderboard {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .leaderboard h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  th, td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .rank {
+    font-size: 1rem;
+  }
+
+  .user {
+    font-size: 0.95rem;
+  }
+
+  .points {
+    font-size: 1rem;
+  }
+}
